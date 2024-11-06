@@ -21,7 +21,7 @@ file_convertion() {
         # Check if the file exists
         if [ -f "$file" ]; then
             START_TIME=$(date +%s)
-            echo -e -n "Processing $file \t"
+            echo -e -n "Processing $file"
             # Remove the file extension and add the new one
             mogrify -format $TO_FORMAT "$file"
             
