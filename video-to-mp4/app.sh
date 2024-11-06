@@ -12,7 +12,6 @@ print_help() {
 file_convertion() {
     local FROM_FORMAT=$1
     local TO_FORMAT=$2
-    local TARGET_DIR=$3
 
     $OUTPUT_SUB_DIR = "converted-$FROM_FORMAT-$TO_FORMAT" 
     echo "$OUTPUT_SUB_DIR"
@@ -22,7 +21,7 @@ file_convertion() {
         if [ -f "$file" ]; then
             echo "Processing $file"
             # Remove the file extension and add the new one
-            ffmpeg -i "$file" -vcodec libx264 -acodec aac "$TARGET_DIR/${file%.$FROM_FORMAT}.$TO_FORMAT"
+            ffmpeg -i "$file" -vcodec libx264 -acodec aac "${file%.$FROM_FORMAT}.$TO_FORMAT"
         else
             echo "No files with .$FROM_FORMAT extension found"
         fi
