@@ -15,9 +15,15 @@ file_convertion() {
 
     echo "$FROM_FORMAT - $TO_FORMAT"
 
-    for file in *.${FROM_FORMAT}; do
-        echo "Processing ${file}"
-        ffmpeg -i "${file}" -vcodec libx264 -acodec aac "${file%}.${TO_FORMAT}"
+    for file in *."$FROM_FORMAT"; do
+        # Check if the file exists
+        if [ -f "$file" ]; then
+            echo "Processing $file"
+            # Remove the file extension and add the new one
+            ffmpeg -i "$file" -vcodec libx264 -acodec aac "${file%.$FROM_FORMAT}.$TO_FORMAT"
+        else
+            echo "No files with .$FROM_FORMAT extension found"
+        fi
     done
 }
 
