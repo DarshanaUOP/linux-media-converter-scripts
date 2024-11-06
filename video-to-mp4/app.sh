@@ -34,6 +34,7 @@ else
     WORK_DIRECTORY="."
 fi
 
+echo $WORK_DIRECTORY
 # Change directory
 cd $WORK_DIRECTORY
 pwd
