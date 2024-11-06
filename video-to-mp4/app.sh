@@ -13,7 +13,7 @@ file_convertion() {
     local FROM_FORMAT=$1
     local TO_FORMAT=$2
 
-    OUTPUT_SUB_DIR = "converted-$FROM_FORMAT-$TO_FORMAT" 
+    $OUTPUT_SUB_DIR = "converted-$FROM_FORMAT-$TO_FORMAT" 
     echo "$OUTPUT_SUB_DIR"
 
     for file in *."$FROM_FORMAT"; do
