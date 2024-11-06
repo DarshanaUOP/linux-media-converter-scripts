@@ -15,7 +15,7 @@ file_convertion() {
 
     echo "$FROM_FORMAT - $TO_FORMAT"
 
-    for file in *.{FROM_FORMAT}; do
+    for file in *.${FROM_FORMAT}; do
         echo "Processing ${file}"
         ffmpeg -i "${file}" -vcodec libx264 -acodec aac "${file%}.${TO_FORMAT}"
     done
@@ -35,7 +35,6 @@ if [ "$INPUT_FORMAT" = "help" ]; then
 fi
 
 if [ -n "$INPUT_FORMAT" ] && [ -n "$OUTPUT_FORMAT" ]; then
-    echo "Both INPUT_FORMAT and OUTPUT_FORMAT are set."
     file_convertion $INPUT_FORMAT $OUTPUT_FORMAT
 fi
 
