@@ -29,9 +29,9 @@ file_convertion() {
 }
 
 if [ -z "$3" ]; then 
-    WORK_DIRECTORY=$3
-else
     WORK_DIRECTORY="."
+else
+    WORK_DIRECTORY=$3
 fi
 echo $3
 echo $WORK_DIRECTORY
