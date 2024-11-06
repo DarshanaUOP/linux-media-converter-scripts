@@ -13,7 +13,8 @@ file_convertion() {
     local FROM_FORMAT=$1
     local TO_FORMAT=$2
 
-    echo "$FROM_FORMAT - $TO_FORMAT"
+    local OUTPUT_SUB_DIR = "converted-$FROM_FORMAT-$TO_FORMAT" 
+    echo "$OUTPUT_SUB_DIR"
 
     for file in *."$FROM_FORMAT"; do
         # Check if the file exists
