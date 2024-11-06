@@ -16,14 +16,15 @@ file_convertion() {
     OUTPUT_SUB_DIR="converted-$FROM_FORMAT-$TO_FORMAT"
     echo "$OUTPUT_SUB_DIR"
     mkdir $OUTPUT_SUB_DIR
-
+    
     for file in *."$FROM_FORMAT"; do
         # Check if the file exists
         if [ -f "$file" ]; then
             echo "Processing $file"
             # Remove the file extension and add the new one
             # ffmpeg -i "$file" -vcodec libx264 -acodec aac "$(pwd)/$OUTPUT_SUB_DIR/${file%.$FROM_FORMAT}.$TO_FORMAT"
-            mogrify -format $TO_FORMAT *.$FROM_FORMAT
+            mogrify -format $TO_FORMAT "$file"
+            mv 
         else
             echo "No files with .$FROM_FORMAT extension found"
         fi
