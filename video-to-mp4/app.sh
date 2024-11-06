@@ -27,6 +27,16 @@ file_convertion() {
     done
 }
 
+if [ -z $3 ]; then 
+    WORK_DIRECTORY=$3
+else
+    WORK_DIRECTORY="."
+fi
+
+# Change directory
+cd $WORK_DIRECTORY
+pwd
+
 if [ -z "$INPUT_FORMAT" ]; then
     if [ -z "$OUTPUT_FORMAT" ]; then
         # both parameters are empty
