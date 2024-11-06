@@ -20,11 +20,17 @@ file_convertion() {
     for file in *."$FROM_FORMAT"; do
         # Check if the file exists
         if [ -f "$file" ]; then
-            echo "Processing $file"
+            START_TIME=$(date +%s)
+            echo -e -n "Processing $file \t"
             # Remove the file extension and add the new one
-            # ffmpeg -i "$file" -vcodec libx264 -acodec aac "$(pwd)/$OUTPUT_SUB_DIR/${file%.$FROM_FORMAT}.$TO_FORMAT"
             mogrify -format $TO_FORMAT "$file"
-            # mv 
+            
+            END_TIME=$(date +%s)
+            # Calculate the elapsed time in seconds
+            ELAPSED_TIME=$((END_TIME - START_TIME))
+            # Optional: Print the elapsed time
+            echo "Elapsed time: $ELAPSED_TIME seconds"
+
         else
             echo "No files with .$FROM_FORMAT extension found"
         fi
