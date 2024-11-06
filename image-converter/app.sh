@@ -24,7 +24,7 @@ file_convertion() {
             # Remove the file extension and add the new one
             # ffmpeg -i "$file" -vcodec libx264 -acodec aac "$(pwd)/$OUTPUT_SUB_DIR/${file%.$FROM_FORMAT}.$TO_FORMAT"
             mogrify -format $TO_FORMAT "$file"
-            mv 
+            # mv 
         else
             echo "No files with .$FROM_FORMAT extension found"
         fi
