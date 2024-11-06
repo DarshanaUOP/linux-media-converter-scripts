@@ -28,12 +28,12 @@ file_convertion() {
     done
 }
 
-if [ -z $3 ]; then 
+if [ -z "$3" ]; then 
     WORK_DIRECTORY=$3
 else
     WORK_DIRECTORY="."
 fi
-
+echo $3
 echo $WORK_DIRECTORY
 # Change directory
 cd $WORK_DIRECTORY
