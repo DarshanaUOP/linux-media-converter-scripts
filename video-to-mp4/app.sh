@@ -21,7 +21,7 @@ file_convertion() {
         if [ -f "$file" ]; then
             echo "Processing $file"
             # Remove the file extension and add the new one
-            ffmpeg -i "$file" -vcodec libx264 -acodec aac "${file%.$FROM_FORMAT}.$TO_FORMAT"
+            ffmpeg -i "$file" -vcodec libx264 -acodec aac "$OUTPUT_SUB_DIR${file%.$FROM_FORMAT}.$TO_FORMAT"
         else
             echo "No files with .$FROM_FORMAT extension found"
         fi
