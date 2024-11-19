@@ -4,7 +4,7 @@ INPUT_FORMAT=$1
 OUTPUT_FORMAT=$2
 
 print_help() {
-    echo -e "Usage\tapp.sh <input_format> <output_format>"
+    echo -e "Usage\tapp.sh <input_format> <output_format> <work-directory>"
     echo -e "\tExample: app.sh MKV mp4"
     echo -e "help\tprint this help script"
 }
