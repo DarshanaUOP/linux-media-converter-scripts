@@ -3,6 +3,7 @@
 for file in *.m4a; do
     if [ -f "$file" ]; then
         # Extract the base name (without extension)
+        echo "converting $file"
         base="${file%.m4a}"
         # Convert to MP4
         ffmpeg -i "$file" -c copy "${base}.mp4"
